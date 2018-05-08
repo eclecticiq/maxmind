@@ -16,5 +16,5 @@ format:
   - csv
 
 script:
-  - ./maxmind.py --database=$database --format=$format
+  - ./maxmind.py --database="$database" --format="$format"
   - ls GeoLite2*
