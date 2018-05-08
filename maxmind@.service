@@ -1,0 +1,11 @@
+[Unit]
+Description=MaxMind %i database downloader
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/maxmind --database %i --format binary
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Run maxmind job
+
+[Timer]
+OnBootSec=30
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
