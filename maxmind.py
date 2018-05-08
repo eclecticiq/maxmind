@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import os
-import pathlib
 import sys
 import tempfile
 from optparse import OptionParser
@@ -24,7 +23,7 @@ suffix = {"csv": "-CSV.zip", "binary": ".tar.gz"}
 
 def download(url, path):
     logger.info("downloading: %s", url)
-    filename = pathlib.PurePath(path, os.path.basename(url))
+    filename = os.path.join(path, os.path.basename(url))
     urllib.request.urlretrieve(url, filename)
     return filename
 
