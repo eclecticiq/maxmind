@@ -31,7 +31,7 @@ def download(url, path):
 
 def binary_files(members):
     for info in members:
-        if os.path.splitext(info.name)[1] == ".mmdb":
+        if info.name.endswith(".mmdb"):
             info.name = os.path.basename(info.name)
             logger.info("extracting: %s", info.name)
             yield info
@@ -39,7 +39,7 @@ def binary_files(members):
 
 def csv_files(members):
     for info in members:
-        if os.path.splitext(info.filename)[1] == ".csv":
+        if info.filename.endswith(".csv"):
             info.filename = os.path.basename(info.filename)
             logger.info("extracting: %s", info.filename)
             yield info
@@ -76,7 +76,7 @@ def main():
     filename = template.substitute(db=database[options.db],
                                    suffix=suffix[options.format])
 
-    with tempfile.TemporaryDirectory(prefix='maxmind') as tmp:
+    with tempfile.TemporaryDirectory(prefix='maxmind_') as tmp:
         logger.info("created tmp directory: %s", tmp)
         filepath = download(url + filename, tmp)
         md5path = download(url + filename + '.md5', tmp)
