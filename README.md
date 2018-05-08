@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/eclecticiq/maxmind.svg?branch=master)](https://travis-ci.org/eclecticiq/maxmind)
+
 This Python3 script can be used to fetch [GeoLite2 Free Downloadable Databases](https://dev.maxmind.com/geoip/geoip2/geolite2/)
 
 ## Usage
