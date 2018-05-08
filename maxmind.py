@@ -78,8 +78,12 @@ def main():
 
     with tempfile.TemporaryDirectory(prefix='maxmind_') as tmp:
         logger.info("created tmp directory: %s", tmp)
-        filepath = download(url + filename, tmp)
-        md5path = download(url + filename + '.md5', tmp)
+        try:
+            filepath = download(url + filename, tmp)
+            md5path = download(url + filename + '.md5', tmp)
+        except urllib.error.HTTPError as e:
+            logger.error("download failed, %s", e)
+            sys.exit(1)
 
         logger.info("verifying checksum...")
         checksum = hashlib.md5(open(filepath, 'rb').read()).hexdigest()
