@@ -16,7 +16,7 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-url = "http://geolite.maxmind.com/download/geoip/database/"
+url = "https://geolite.maxmind.com/download/geoip/database/"
 template = Template('GeoLite2-$db$suffix')
 database = {"asn": "ASN", "city": "City", "country": "Country"}
 suffix = {"csv": "-CSV.zip", "binary": ".tar.gz"}
