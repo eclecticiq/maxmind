@@ -6,14 +6,13 @@ python:
     - "3.5"
     - "3.6"
 
-database:
-  - asn
-  - city
-  - country
-
-format:
-  - binary
-  - csv
+env:
+  - database=asn format=binary
+  - database=asn format=csv
+  - database=city format=binary
+  - database=city format=csv
+  - database=country format=binary
+  - database=country format=csv
 
 script:
   - ./maxmind.py --database="$database" --format="$format"
